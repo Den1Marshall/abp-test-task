@@ -6,6 +6,7 @@ import {
   FramerMotionConfig,
   StoreProvider,
 } from '@/app/ui';
+import { NextUIProvider } from '@nextui-org/react';
 
 export const metadata: Metadata = {
   title: 'Next.js Boilerplate',
@@ -53,12 +54,16 @@ export default function RootLayout({
     <html
       lang='en'
       suppressHydrationWarning={true}
-      className='h-[max(calc(100%_+_env(safe-area-inset-top)),_100%)] font-sans overscroll-none touch-pan-x touch-pan-y motion-safe:scroll-smooth'
+      className='dark h-[max(calc(100%_+_env(safe-area-inset-top)),_100%)] font-sans touch-pan-x touch-pan-y motion-safe:scroll-smooth'
     >
-      <body className='h-full py-safe px-safe-or-5 dark:bg-black dark:text-white overscroll-none'>
+      <body className='max-w-[1440px] mx-auto h-full py-safe px-safe-or-5 dark:bg-black dark:text-white'>
         <FramerMotionConfig>
           <AriaRouterProvider>
-            <StoreProvider>{children}</StoreProvider>
+            <StoreProvider>
+              <NextUIProvider className='w-full h-full'>
+                {children}
+              </NextUIProvider>
+            </StoreProvider>
           </AriaRouterProvider>
         </FramerMotionConfig>
       </body>
