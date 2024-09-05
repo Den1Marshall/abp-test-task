@@ -1,7 +1,11 @@
 import type { Metadata, Viewport } from 'next';
 import '@/app/index.css';
 import { startupImage } from './startupImage';
-import { AriaRouterProvider, FramerMotionConfig } from '@/app/ui';
+import {
+  AriaRouterProvider,
+  FramerMotionConfig,
+  StoreProvider,
+} from '@/app/ui';
 
 export const metadata: Metadata = {
   title: 'Next.js Boilerplate',
@@ -53,7 +57,9 @@ export default function RootLayout({
     >
       <body className='h-full py-safe px-safe-or-5 dark:bg-black dark:text-white overscroll-none'>
         <FramerMotionConfig>
-          <AriaRouterProvider>{children}</AriaRouterProvider>
+          <AriaRouterProvider>
+            <StoreProvider>{children}</StoreProvider>
+          </AriaRouterProvider>
         </FramerMotionConfig>
       </body>
     </html>
