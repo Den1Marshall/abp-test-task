@@ -9,9 +9,9 @@ import {
 import { NextUIProvider } from '@nextui-org/react';
 
 export const metadata: Metadata = {
-  title: 'Next.js Boilerplate',
-  description: 'Next.js Boilerplate',
-  metadataBase: new URL('https://nextjs-boilerplate-gules-pi.vercel.app'),
+  title: 'Car Showroom',
+  description: 'Car Showroom',
+  metadataBase: new URL('https://abp-test-task.vercel.app/'),
   robots: 'all',
   alternates: {
     canonical: '/',
@@ -20,14 +20,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: '/',
-    title: 'Next.js Boilerplate',
-    description: 'Next.js Boilerplate',
+    title: 'Car Showroom',
+    description: 'Car Showroom',
   },
 
   twitter: {
     card: 'summary_large_image',
-    title: 'Next.js Boilerplate',
-    description: 'Next.js Boilerplate',
+    title: 'Car Showroom',
+    description: 'Car Showroom',
   },
 
   appleWebApp: {

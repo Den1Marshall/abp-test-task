@@ -1,6 +1,6 @@
 {
-  "name": "Next.js Boilerplate",
-  "short_name": "Next.js Boilerplate",
+  "name": "Car Showroom",
+  "short_name": "Car Showroom",
   "icons": [
     { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
     { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" }
@@ -11,6 +11,6 @@
   "scope": "/",
   "theme_color": "#000",
   "shortcuts": [],
-  "description": "Next.js Boilerplate",
+  "description": "Car Showroom",
   "screenshots": []
 }
