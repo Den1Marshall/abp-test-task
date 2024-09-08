@@ -1,12 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { vehiclesApi } from '@/entities/VehicleList';
-import { sortByReducer } from '@/entities/VehicleList';
+import { sortByReducer, filterByReducer } from '@/entities/VehicleList';
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       [vehiclesApi.reducerPath]: vehiclesApi.reducer,
       sortByReducer,
+      filterByReducer,
     },
 
     middleware: (getDefaultMiddleware) =>

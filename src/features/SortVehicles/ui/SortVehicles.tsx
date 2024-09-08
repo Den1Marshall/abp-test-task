@@ -9,17 +9,38 @@ import {
   DropdownTrigger,
 } from '@nextui-org/react';
 import { FC } from 'react';
-import { formatSortString } from './lib/formatSortString';
+import { formatSortString } from '../lib/formatSortString';
+import { SortIcon } from './SortIcon';
+import { Variants } from 'framer-motion';
 
 export const SortVehicles: FC = () => {
   const dispatch = useAppDispatch();
   const sortBy = useAppSelector((state) => state.sortByReducer.sortBy);
 
+  const variants: Variants = {
+    enter: {
+      opacity: 1,
+      transform: 'scale(1)',
+      transition: { type: 'spring', duration: 0.5, bounce: 0.2 },
+    },
+    exit: {
+      opacity: 0,
+      transform: 'scale(0)',
+    },
+  };
+
   return (
-    <Dropdown>
+    <Dropdown motionProps={{ variants }}>
       <DropdownTrigger>
-        <Button fullWidth variant='bordered' disableRipple className='min-h-10'>
-          Sort by: {formatSortString(sortBy)}
+        <Button
+          aria-label={`Sort by: ${formatSortString(sortBy)}`}
+          fullWidth
+          variant='bordered'
+          disableRipple
+          className='min-w-[50%]'
+        >
+          <SortIcon />
+          Sort
         </Button>
       </DropdownTrigger>
       <DropdownMenu

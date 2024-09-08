@@ -1,1 +1,1 @@
-export { SortVehicles } from './ui';
+export { SortVehicles } from './ui/SortVehicles';
