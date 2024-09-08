@@ -25,12 +25,14 @@ export const VehicleList: FC = () => {
 
       if (filterBy) {
         vehiclesCopy = vehiclesCopy.filter((vehicle) =>
-          Object.keys(vehicle).some((parameter) =>
-            vehicle[parameter]
+          Object.keys(vehicle).some((parameter) => {
+            const prop = (vehicle as any)[parameter];
+
+            return prop
               .toString()
               .toLowerCase()
-              .includes(filterBy.toLowerCase())
-          )
+              .includes(filterBy.toLowerCase());
+          })
         );
       }
 
