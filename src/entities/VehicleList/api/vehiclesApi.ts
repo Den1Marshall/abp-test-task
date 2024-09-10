@@ -5,20 +5,25 @@ import { SortBy } from '../model/sortBySlice';
 export const vehiclesApi = createApi({
   reducerPath: 'vehiclesApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://dummyjson.com/products/category/vehicle',
+    baseUrl: 'https://dummyjson.com',
   }),
 
   endpoints: (builder) => ({
     getAllVehicles: builder.query<Vehicle[], SortBy>({
       query: (sortBy) => {
-        if (sortBy === 'default') return '';
+        if (sortBy === 'default') return '/products/category/vehicle';
 
-        return `?${sortBy}`;
+        return `/products/category/vehicle?${sortBy}`;
       },
+
       transformResponse: (response: { products: Vehicle[] }) =>
         response.products, // instantly return products array to avoid unnecessary destructurization
+    }),
+
+    getVehicleById: builder.query<Vehicle, number>({
+      query: (id) => `/products/${id}`,
     }),
   }),
 });
 
-export const { useGetAllVehiclesQuery } = vehiclesApi;
+export const { useGetAllVehiclesQuery, useGetVehicleByIdQuery } = vehiclesApi;

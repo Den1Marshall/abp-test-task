@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import '@/app/index.css';
+import '@smastrom/react-rating/style.css';
 import { startupImage } from './startupImage';
 import {
   AriaRouterProvider,

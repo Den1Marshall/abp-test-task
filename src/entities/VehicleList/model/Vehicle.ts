@@ -11,7 +11,7 @@ interface VehicleMeta {
   qrCode: string;
 }
 
-interface VehicleReview {
+export interface VehicleReview {
   rating: number;
   comment: string;
   date: string;

@@ -6,9 +6,9 @@ import { Card, CardBody, Link as NextUILink } from '@nextui-org/react';
 import Link from 'next/link';
 import { useAppSelector } from '@/app/ui';
 import { Error } from './Error';
-import { Loading } from './Loading';
 import { Vehicle } from '../model/Vehicle';
 import { NothingFound } from './NothingFound';
+import { Loading } from '@/shared/ui';
 
 export const VehicleList: FC = () => {
   const sortBy = useAppSelector((state) => state.sortByReducer.sortBy);
@@ -58,7 +58,7 @@ export const VehicleList: FC = () => {
     }
   }, [data, filterBy, minPrice, maxPrice, inStock]);
 
-  if (isLoading || isFetching) return <Loading />;
+  if (isLoading || isFetching) return <Loading className={'my-auto'} />;
   if (isError) return <Error refetch={refetch} />;
   if (filteredVehicles && filteredVehicles.length === 0)
     return <NothingFound />;
@@ -72,7 +72,6 @@ export const VehicleList: FC = () => {
               <CardBody className='flex flex-row gap-10 overflow-hidden'>
                 <NextUILink
                   as={Link}
-                  isDisabled={vehicle.availabilityStatus === 'Out of Stock'}
                   href={`/vehicles/${vehicle.id}`}
                   className='bg-black'
                 >
@@ -89,7 +88,6 @@ export const VehicleList: FC = () => {
                   <NextUILink
                     as={Link}
                     href={`/vehicles/${vehicle.id}`}
-                    isDisabled={vehicle.availabilityStatus === 'Out of Stock'}
                   >{`${vehicle.brand} ${vehicle.title}`}</NextUILink>
 
                   <p className='text-success'>${vehicle.price}</p>
